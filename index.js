@@ -11,6 +11,8 @@ const KAAMELOTT_DOMAIN = 'kaamelott-soundboard.2ec0b4.fr';
 app.use(express.json());
 const uploadFile = (fileStream, channel, fileName) => {
   console.log('upload file');
+  
+  try {
 
   const form = new FormData();
   form.append('token', process.env.SLACK_TOKEN);
@@ -24,6 +26,10 @@ const uploadFile = (fileStream, channel, fileName) => {
       headers: form.getHeaders(),
     })
     .catch(err => console.log(err));
+  }
+  catch(err) {
+    console.log(err)
+  }
 };
 
 app.get('/', function(req, res) {
