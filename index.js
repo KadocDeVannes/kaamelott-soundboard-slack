@@ -74,6 +74,8 @@ app.post('/', function(req, res) {
   });
 });
 
-app.listen(3333, function() {
-  console.log('Example app listening on port 3333!');
+var port = process.env.PORT || 3333;
+
+app.listen(port, function() {
+  console.log('Example app listening on port ' + port + '!');
 });
